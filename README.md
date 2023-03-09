@@ -15,7 +15,7 @@ Tools for setting up your Neobotix's simulation workspace
   docker build -f Dockerfile.humble22 . -t humblesim
   ```
 
-4. Run the ```run_sim.sh``` script present in this repo
+4. Run the ```run_sim_docker.sh``` script present in this repo
 
 # Appendix
 
