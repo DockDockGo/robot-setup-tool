@@ -16,7 +16,7 @@ sudo apt install python3-colcon-common-extensions
 
 # Install Gazebo packages
 
-sudo apt-get install ros-$ROS_DISTRO-gazebo-ros ros-$ROS_DISTRO-gazebo-plugins ros-$ROS_DISTRO-gazebo-ros-pkgs
+sudo apt-get install -y ros-$ROS_DISTRO-gazebo-ros ros-$ROS_DISTRO-gazebo-plugins ros-$ROS_DISTRO-gazebo-ros-pkgs
 
 #Install xterm
 
