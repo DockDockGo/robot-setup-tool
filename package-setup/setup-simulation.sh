@@ -51,15 +51,15 @@ git clone --branch master          https://github.com/neobotix/neo_common2
 git clone --branch master          https://github.com/neobotix/neo_msgs2
 git clone --branch master          https://github.com/neobotix/neo_srvs2
 
-# build workspace
-cd ..
-colcon build --symlink-install 
+# # build workspace
+# cd ..
+# colcon build --symlink-install 
 
-echo "export LC_NUMERIC="en_US.UTF-8" " >> ~/.bashrc
+# echo "export LC_NUMERIC="en_US.UTF-8" " >> ~/.bashrc
 
-echo "source neobotix_workspace/install/setup.bash" >> ~/.bashrc
+# echo "source neobotix_workspace/install/setup.bash" >> ~/.bashrc
 
-echo "Installation successful !!!"
+echo "Setup Successful, Continue Installation after creating container!!!"
 
 echo "Do not forget to set the environment variables"
 
