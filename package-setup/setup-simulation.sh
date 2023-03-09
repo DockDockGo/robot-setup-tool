@@ -11,6 +11,8 @@ then
 	exit 0
 fi
 
+sudo apt update
+
 # Install build tool
 sudo apt install python3-colcon-common-extensions
 
