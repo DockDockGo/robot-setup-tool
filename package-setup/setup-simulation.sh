@@ -22,7 +22,7 @@ sudo apt-get install -y ros-$ROS_DISTRO-gazebo-ros ros-$ROS_DISTRO-gazebo-plugin
 
 #Install xterm
 
-sudo apt install xterm
+sudo apt install -y xterm
 
 # Install navigation packages
 
