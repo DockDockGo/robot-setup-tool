@@ -10,10 +10,10 @@ Tools for setting up your Neobotix's simulation workspace
    cd ./robot_setup-tool
    ```
 
-3. Run the following command
-  ```bash
-  docker build -f Dockerfile.humble22 . -t humblesim
-  ```
+3. Run the following command 
+   ```bash
+   docker build -f Dockerfile.humble22 . -t humblesim
+   ```
 
 4. BACKUP: run ```docker run -it humblesim bash```
    ORIGINAL: Run the ```run_sim_docker.sh``` script present in this repo
