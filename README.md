@@ -36,7 +36,7 @@ Tools for setting up your Neobotix's simulation workspace
 
 7. Set Environment Variables (note you need to set your own world file inside the neobotix's world folder)
    ```bash
-   export MY_ROBOT=mpo_700
+   export MY_ROBOT=mp_400
    export MAP_NAME=neo_workshop
    ```
 
