@@ -12,10 +12,10 @@ docker run -it --rm \
     --privileged \
     --network host \
     ${DOCKER_ARGS[@]} \
-    -v /home/sush/mfi/sim_ws:/root/neobotix_workspace/ \
+    -v /home/sush/mfi/robot-setup-tool/world_files:/home/admin/worlds \
     -v /dev/*:/dev/* \
     --name "humble_sim_docker" \
     --runtime nvidia \
     $@ \
-    humblesim \
+    humble_sim_docker_built \
     /bin/bash

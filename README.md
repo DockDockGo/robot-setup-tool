@@ -16,7 +16,8 @@ Tools for setting up your Neobotix's simulation workspace
    ```
 
 4. BACKUP: run ```docker run -it humblesim bash```
-   ORIGINAL: Run the ```run_sim_docker.sh``` script present in this repo
+   Do ```chmod +x run_sim_docker.sh```
+   ORIGINAL: Run the ```./run_sim_docker.sh``` script present in this repo
 
 5. ```bash
    cd /root/neobotix_workspace
