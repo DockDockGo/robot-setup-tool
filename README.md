@@ -15,8 +15,20 @@ Tools for setting up your Neobotix's simulation workspace
   docker build -f Dockerfile.humble22 . -t humblesim
   ```
 
-4. TEMPORARY_FIX: run ```docker run -it humblesim bash```
-   DONT RUN: Run the ```run_sim_docker.sh``` script present in this repo
+4. BACKUP: run ```docker run -it humblesim bash```
+   ORIGINAL: Run the ```run_sim_docker.sh``` script present in this repo
+
+5. ```bash
+   cd /root/neobotix_workspace
+   ```
+
+6. ```bash
+   colcon build --symlink-install 
+
+   echo "export LC_NUMERIC="en_US.UTF-8" " >> ~/.bashrc
+
+   echo "source neobotix_workspace/install/setup.bash" >> ~/.bashrc
+   ```
 
 # Appendix
 
