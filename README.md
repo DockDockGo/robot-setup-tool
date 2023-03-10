@@ -40,9 +40,22 @@ Tools for setting up your Neobotix's simulation workspace
    export MAP_NAME=neo_workshop
    ```
 
-8. Run Simulation
+8. Install tmux and rviz2
+   ```bash
+   sudo apt install tmux
+   sudo apt install ros-humble-rviz2
+   ```
+
+9. Create multiple tmux panes, in each you must set environment variables of step 7
+
+10. Run Simulation in first pane
    ```bash
    ros2 launch neo_simulation2 simulation.launch.py
+   ```
+
+11. Run Navigation in Simulation in second pane
+   ```bash
+   ros2 launch neo_simulation2 navigation.launch.py map:=/root/neobotix_workspace/src/neo_simulation2/maps/neo_workshop.yaml
    ```
 
 # Appendix
