@@ -30,6 +30,17 @@ Tools for setting up your Neobotix's simulation workspace
    echo "source neobotix_workspace/install/setup.bash" >> ~/.bashrc
    ```
 
+7. Set Environment Variables (note you need to set your own world file inside the neobotix's world folder)
+   ```bash
+   export MY_ROBOT=mpo_700
+   export MAP_NAME=neo_workshop
+   ```
+
+8. Run Simulation
+   ```bash
+   ros2 launch neo_simulation2 simulation.launch.py
+   ```
+
 # Appendix
 
 1. If you want to stop any active running continers
