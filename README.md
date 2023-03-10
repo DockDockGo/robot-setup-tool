@@ -57,3 +57,7 @@ Tools for setting up your Neobotix's simulation workspace
    docker images
    docker rmi <image_tag_or_ID>
    ```
+3. If you face issues with display driver not working, then before running the run_sim_docker.sh do:
+   ```bash
+   xhost +local:docker
+   ```
