@@ -48,14 +48,19 @@ Tools for setting up your Neobotix's simulation workspace
 
 9. Create multiple tmux panes, in each you must set environment variables of step 7
 
-10. Run Simulation in first pane
+10. Run Simulation in first tmux pane
    ```bash
    ros2 launch neo_simulation2 simulation.launch.py
    ```
 
-11. Run Navigation in Simulation in second pane
+11. Run Navigation in Simulation in second tmux pane
    ```bash
    ros2 launch neo_simulation2 navigation.launch.py map:=/root/neobotix_workspace/src/neo_simulation2/maps/neo_workshop.yaml
+   ```
+   
+12. Run rviz2 in third tmux pane
+   ```bash
+   ros2 launch neo_nav2_bringup rviz_launch.py
    ```
 
 # Appendix
