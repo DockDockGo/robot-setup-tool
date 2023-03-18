@@ -63,6 +63,17 @@ Tools for setting up your Neobotix's simulation workspace
    ros2 launch neo_nav2_bringup rviz_launch.py
    ```
 
+# Using Custom World Files for Simulation
+
+1. Use ```world_files``` folder to copy the ```trial_world.world``` into the ```~/neobotix_workspace/src/neo_simulation2/worlds``` folder
+2. Use ```world_files``` folder to copy the entire folder ```mfi_floor_trial1``` into ```~/neobotix_workspace/src/neo_simulation2/models``` folder
+3. Change ```export MAP_NAME=trial_world```
+4. Run the simulation as in step 10 in previous section
+
+# Using Custom World Files for Navigation
+
+This will require mapping the custom world and saving a map. This will be done shortly
+
 # Appendix
 
 1. If you want to stop any active running continers
