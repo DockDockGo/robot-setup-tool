@@ -1,9 +1,0 @@
-/root/neobotix_workspace/src/sush_mapping/build/sush_mapping/CMakeFiles/uninstall.dir
-/root/neobotix_workspace/src/sush_mapping/build/sush_mapping/CMakeFiles/sush_mapping_uninstall.dir
-/root/neobotix_workspace/src/sush_mapping/build/sush_mapping/CMakeFiles/test.dir
-/root/neobotix_workspace/src/sush_mapping/build/sush_mapping/CMakeFiles/edit_cache.dir
-/root/neobotix_workspace/src/sush_mapping/build/sush_mapping/CMakeFiles/rebuild_cache.dir
-/root/neobotix_workspace/src/sush_mapping/build/sush_mapping/CMakeFiles/list_install_components.dir
-/root/neobotix_workspace/src/sush_mapping/build/sush_mapping/CMakeFiles/install.dir
-/root/neobotix_workspace/src/sush_mapping/build/sush_mapping/CMakeFiles/install/local.dir
-/root/neobotix_workspace/src/sush_mapping/build/sush_mapping/CMakeFiles/install/strip.dir
