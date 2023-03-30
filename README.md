@@ -17,14 +17,15 @@ Tools for setting up your Neobotix's simulation workspace
    docker build -f Dockerfile.humble22 . -t humblesim
    ```
 
-4. BACKUP:
+4. Try running docker:
    ```docker run -it humblesim bash```
 
-   Better to do:
+   But Better to do:
    ```chmod +x run_sim_docker.sh```
    ```./run_sim_docker.sh```
 
-5. ```bash
+5. Once you enter the docker environment navigate to the Neobotix Workspace
+   ```bash
    cd /root/neobotix_workspace
    ```
 
@@ -106,6 +107,8 @@ Tools for setting up your Neobotix's simulation workspace
    ros2 launch neo_nav2_bringup rviz_launch.py
    ```
 
+
+
 # Using Custom World Files for Simulation
 
 1. Use ```world_files``` folder to copy the ```trial_world.world``` into the ```~/neobotix_workspace/src/neo_simulation2/worlds``` folder
@@ -113,13 +116,47 @@ Tools for setting up your Neobotix's simulation workspace
 3. Change ```export MAP_NAME=trial_world```
 4. Run the simulation as in step 10 in previous section
 
-# Using Custom World Files for Navigation
 
-This will require mapping the custom world and saving a map. This will be done shortly
 
-# Detailed Reference
+# Using Custom World Files for SLAM and Navigation
+
+This will require mapping the custom world and saving a map. This process is explained below:
+
+Note. Since this mapping setup works, the XML parser error seen in the above neobotix mapper
+is probably not an issue
+
+## Build Steps
+- ```cd /root/neobotix_workspace/src```
+- ```git clone --branch $ROS_DISTRO https://github.com/neobotix/neo_mp_400-2.git```
+- ```cd neo_mp_400-2```
+- ```cd ..```
+- Copy the package which will launch the slam_toolbox ```cp /home/admin/worlds/sush_mapping .```
+- ``` cd ..```
+- ```colcon build --symlink-install```
+- source necessary files ```source install/setup.bash```
+
+## Run Steps
+
+- ```ros2 launch neo_simulation2 simulation.launch.py```
+- The above script should launch simulation which starts publishing topics called '/scan' and some odometry topics
+- *Note. the above topics should match the topics slam_toolbox requires, this is present in [this file](https://github.com/SteveMacenski/slam_toolbox/blob/ros2/config/mapper_params_online_async.yaml)*
+- Now that we have simulation running, we can launch the slam toolbox by launching the package we created (i.e. sush_mapping, sorry about the name)
+- ```ros2 launch sush_mapping online_async_launch.py```
+- The SLAM toolbox might throw some errors in XML-Parser errors, these can be ignored
+- Now, to vizualise the map being generated, launch rviz ```ros2 run rviz2 rviz2```
+- Once in rviz, click **Add** in the botton left corner and in the first pane itself (*by display type*), there is a Map option. Select that.
+- Now, the map still won't load until you choose the right topic.
+  - Select Topic = map
+  - Select Update Topic = /map_updates
+- Then move around the robot (using teleop) and you should see the map being generated as shown below
+- Now, we run map_saver package to save the map created by the SLAM toolbox as a .pgm file
+  - ```ros2 run nav2_map_server map_saver_cli -f /root/neobotix_workspace/src/neo_mp_400-2/configs/navigation/sush_map```
+
+## Detailed Reference
 
 [Team H Website](https://mrsd-project.herokuapp.com/docs/Simulation/build_floorplan.html){: .btn .fs-3 .mb-4 .mb-md-0 }
+
+
 
 # Appendix
 
