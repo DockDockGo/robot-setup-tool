@@ -4,20 +4,22 @@ Tools for setting up your Neobotix's simulation workspace
 
 # Setup Process
 
+## Setup Docker Container from Scratch
+
 1. Clone this repo
 
 2. ```bash
    cd ./robot_setup-tool
    ```
 
-3. Run the following command 
+3. Run the following command
    ```bash
    docker build -f Dockerfile.humble22 . -t humblesim
    ```
 
-4. BACKUP: 
+4. BACKUP:
    ```docker run -it humblesim bash```
-   
+
    Better to do:
    ```chmod +x run_sim_docker.sh```
    ```./run_sim_docker.sh```
@@ -27,38 +29,79 @@ Tools for setting up your Neobotix's simulation workspace
    ```
 
 6. ```bash
-   colcon build --symlink-install 
+   colcon build --symlink-install
 
    echo "export LC_NUMERIC="en_US.UTF-8" " >> ~/.bashrc
 
    echo "source neobotix_workspace/install/setup.bash" >> ~/.bashrc
    ```
 
-7. Set Environment Variables (note you need to set your own world file inside the neobotix's world folder)
+## Use Pre-Built Docker Container
+
+1. Clone this repo
+
+2. ```bash
+   cd ./robot_setup-tool
+   ```
+
+3. Download existing docker image:
+   ```bash
+   docker pull sushanthj/humble_sim_mapping_built
+   ```
+
+4. Modify the run_sim_docker.sh file to be:
+   ```bash
+   # Map host's display socket to docker
+   DOCKER_ARGS+=("-v /tmp/.X11-unix:/tmp/.X11-unix")
+   DOCKER_ARGS+=("-v $HOME/.Xauthority:/home/admin/.Xauthority:rw")
+   DOCKER_ARGS+=("-e DISPLAY")
+   DOCKER_ARGS+=("-e NVIDIA_VISIBLE_DEVICES=all")
+   DOCKER_ARGS+=("-e NVIDIA_DRIVER_CAPABILITIES=all")
+   DOCKER_ARGS+=("-e FASTRTPS_DEFAULT_PROFILES_FILE=/usr/local/share/middleware_profiles/rtps_udp_profile.xml")
+
+   # Run container from image
+   # print_info "Running humblesim"
+   docker run -it --rm \
+      --privileged \
+      --network host \
+      ${DOCKER_ARGS[@]} \
+      -v <ADD_PATH_TO_ROBOT_SETUP_TOOL>/world_files:/home/admin/worlds \
+      -v /dev/*:/dev/* \
+      --name "humble_sim_docker" \
+      --runtime nvidia \
+      $@ \
+      sushanthj/humble_sim_mapping_built:latest \
+      /bin/bash
+   ```
+
+
+# Run the Simulation
+
+1. Set Environment Variables (note you need to set your own world file inside the neobotix's world folder)
    ```bash
    export MY_ROBOT=mp_400
    export MAP_NAME=neo_workshop
    ```
 
-8. Install tmux and rviz2
+2. Install tmux and rviz2
    ```bash
    sudo apt install tmux
    sudo apt install ros-humble-rviz2
    ```
 
-9. Create multiple tmux panes, in each you must set environment variables of step 7
+3. Create multiple tmux panes, in each you must set environment variables of step 7
 
-10. Run Simulation in first tmux pane
+4. Run Simulation in first tmux pane
    ```bash
    ros2 launch neo_simulation2 simulation.launch.py
    ```
 
-11. Run Navigation in Simulation in second tmux pane
+5. Run Navigation in Simulation in second tmux pane
    ```bash
    ros2 launch neo_simulation2 navigation.launch.py map:=/root/neobotix_workspace/src/neo_simulation2/maps/neo_workshop.yaml
    ```
-   
-12. Run rviz2 in third tmux pane
+
+6. Run rviz2 in third tmux pane
    ```bash
    ros2 launch neo_nav2_bringup rviz_launch.py
    ```
@@ -73,6 +116,10 @@ Tools for setting up your Neobotix's simulation workspace
 # Using Custom World Files for Navigation
 
 This will require mapping the custom world and saving a map. This will be done shortly
+
+# Detailed Reference
+
+[Team H Website](https://mrsd-project.herokuapp.com/docs/Simulation/build_floorplan.html){: .btn .fs-3 .mb-4 .mb-md-0 }
 
 # Appendix
 
