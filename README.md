@@ -135,7 +135,7 @@ is probably not an issue
 - ```colcon build --symlink-install```
 - source necessary files ```source install/setup.bash```
 
-## Run Steps
+## Run Steps (Using custom mapping package which uses async mode of slam_toolbox internally)
 
 - ```ros2 launch neo_simulation2 simulation.launch.py```
 - The above script should launch simulation which starts publishing topics called '/scan' and some odometry topics
@@ -153,7 +153,7 @@ is probably not an issue
   - ```ros2 run nav2_map_server map_saver_cli -f /root/neobotix_workspace/src/neo_mp_400-2/configs/navigation/sush_map```
 
 ## Detailed Reference
-
+The below reference will also show how to use neobotix's neo_mp-400-2/mapping package which is a better alternative to the manual mapping package above
 [Team H Website](https://mrsd-project.herokuapp.com/docs/Simulation/build_floorplan.html){: .btn .fs-3 .mb-4 .mb-md-0 }
 
 
