@@ -117,41 +117,6 @@ Tools for setting up your Neobotix's simulation workspace
 4. Run the simulation as in step 10 in previous section
 
 
-
-# Using Custom World Files for SLAM and Navigation
-
-This will require mapping the custom world and saving a map. This process is explained below:
-
-Note. Since this mapping setup works, the XML parser error seen in the above neobotix mapper
-is probably not an issue
-
-## Build Steps
-- ```cd /root/neobotix_workspace/src```
-- ```git clone --branch $ROS_DISTRO https://github.com/neobotix/neo_mp_400-2.git```
-- ```cd neo_mp_400-2```
-- ```cd ..```
-- Copy the package which will launch the slam_toolbox ```cp /home/admin/worlds/sush_mapping .```
-- ``` cd ..```
-- ```colcon build --symlink-install```
-- source necessary files ```source install/setup.bash```
-
-## Run Steps (Using custom mapping package which uses async mode of slam_toolbox internally)
-
-- ```ros2 launch neo_simulation2 simulation.launch.py```
-- The above script should launch simulation which starts publishing topics called '/scan' and some odometry topics
-- *Note. the above topics should match the topics slam_toolbox requires, this is present in [this file](https://github.com/SteveMacenski/slam_toolbox/blob/ros2/config/mapper_params_online_async.yaml)*
-- Now that we have simulation running, we can launch the slam toolbox by launching the package we created (i.e. sush_mapping, sorry about the name)
-- ```ros2 launch sush_mapping online_async_launch.py```
-- The SLAM toolbox might throw some errors in XML-Parser errors, these can be ignored
-- Now, to vizualise the map being generated, launch rviz ```ros2 run rviz2 rviz2```
-- Once in rviz, click **Add** in the botton left corner and in the first pane itself (*by display type*), there is a Map option. Select that.
-- Now, the map still won't load until you choose the right topic.
-  - Select Topic = map
-  - Select Update Topic = /map_updates
-- Then move around the robot (using teleop) and you should see the map being generated as shown below
-- Now, we run map_saver package to save the map created by the SLAM toolbox as a .pgm file
-  - ```ros2 run nav2_map_server map_saver_cli -f /root/neobotix_workspace/src/neo_mp_400-2/configs/navigation/sush_map```
-
 ## Detailed Reference
 The below reference will also show how to use neobotix's neo_mp-400-2/mapping package which is a better alternative to the manual mapping package above
 [Team H Website](https://mrsd-project.herokuapp.com/docs/Simulation/build_floorplan.html){: .btn .fs-3 .mb-4 .mb-md-0 }
