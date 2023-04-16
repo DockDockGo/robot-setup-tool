@@ -1,0 +1,35 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/vrex/mp_400_workspace/install/topic_tools/include/**",
+        "/home/vrex/mp_400_workspace/install/topic_tools_interfaces/include/**",
+        "/home/vrex/mp_400_workspace/install/neo_srvs2/include/**",
+        "/home/vrex/mp_400_workspace/install/neo_sick_s300-2/include/**",
+        "/home/vrex/mp_400_workspace/install/neo_msgs2/include/**",
+        "/home/vrex/mp_400_workspace/install/neo_localization2/include/**",
+        "/home/vrex/mp_400_workspace/install/neo_local_planner/include/**",
+        "/home/vrex/mp_400_workspace/install/neo_fleet_rviz2_plugin/include/**",
+        "/home/vrex/mp_400_workspace/install/neo_common2/include/**",
+        "/opt/ros/humble/include/**",
+        "/home/vrex/mp_400_workspace/src/neo_common2/include/**",
+        "/home/vrex/mp_400_workspace/src/neo_fleet_rviz2_plugin/include/**",
+        "/home/vrex/mp_400_workspace/src/neo_local_planner2/include/**",
+        "/home/vrex/mp_400_workspace/src/neo_localization2/include/**",
+        "/home/vrex/mp_400_workspace/src/neo_sick_s300-2/include/**",
+        "/home/vrex/mp_400_workspace/src/topic_tools/topic_tools/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}
