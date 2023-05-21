@@ -42,31 +42,31 @@ sudo apt-get install -y ros-$ROS_DISTRO-teleop-twist-keyboard
 
 cd ~
 
-# mkdir -p mp_400_ws/src
-# cd mp_400_ws/src
+mkdir -p mp_400_ws/src
+cd mp_400_ws/src
 
-# # clone git repos here...
-# git clone --branch multi-robot-sim-with-xacro     https://github.com/neobotix/neo_simulation2.git
-# git clone --branch $ROS_DISTRO     https://github.com/neobotix/neo_nav2_bringup.git
-# git clone --branch $ROS_DISTRO     https://github.com/neobotix/neo_local_planner2.git
-# git clone --branch $ROS_DISTRO     https://github.com/neobotix/neo_localization2.git
-# git clone --branch master          https://github.com/neobotix/neo_common2
-# git clone --branch master          https://github.com/neobotix/neo_msgs2
-# git clone --branch master          https://github.com/neobotix/neo_srvs2
-# git clone --branch main  		   https://github.com/neobotix/neo_fleet_rviz2_plugin.git
+# clone git repos here...
+git clone --branch multi-robot-sim-with-xacro     https://github.com/neobotix/neo_simulation2.git
+git clone --branch $ROS_DISTRO     https://github.com/neobotix/neo_nav2_bringup.git
+git clone --branch $ROS_DISTRO     https://github.com/neobotix/neo_local_planner2.git
+git clone --branch $ROS_DISTRO     https://github.com/neobotix/neo_localization2.git
+git clone --branch master          https://github.com/neobotix/neo_common2
+git clone --branch master          https://github.com/neobotix/neo_msgs2
+git clone --branch master          https://github.com/neobotix/neo_srvs2
+git clone --branch main  		   https://github.com/neobotix/neo_fleet_rviz2_plugin.git
 
-# # copy workspace 0 files
-# cp ~/robot-setup-tool/world_files/workspace_0/workspace_0* ~/mp_400_ws/src/neo_simulation2/maps/
-# cp ~/robot-setup-tool/world_files/workspace_0/worlds/* ~/mp_400_ws/src/neo_simulation2/worlds/
+# copy workspace 0 files
+cp ~/robot-setup-tool/world_files/workspace_0/workspace_0* ~/mp_400_ws/src/neo_simulation2/maps/
+cp ~/robot-setup-tool/world_files/workspace_0/worlds/* ~/mp_400_ws/src/neo_simulation2/worlds/
 
-# #copy svd_demo
-# cp ~/robot-setup-tool/world_files/svd_demo/map/* ~/mp_400_ws/src/neo_simulation2/maps/
-# cp ~/robot-setup-tool/world_files/svd_demo/world/* ~/mp_400_ws/src/neo_simulation2/worlds/
-# cp -r ~/robot-setup-tool/world_files/svd_demo/models/* ~/mp_400_ws/src/neo_simulation2/models/
+#copy svd_demo
+cp ~/robot-setup-tool/world_files/svd_demo/map/* ~/mp_400_ws/src/neo_simulation2/maps/
+cp ~/robot-setup-tool/world_files/svd_demo/world/* ~/mp_400_ws/src/neo_simulation2/worlds/
+cp -r ~/robot-setup-tool/world_files/svd_demo/models/* ~/mp_400_ws/src/neo_simulation2/models/
 
-# # build workspace
-# cd ..
-# colcon build --symlink-install 
+# build workspace
+cd ..
+colcon build --symlink-install 
 
 echo "export LC_NUMERIC="en_US.UTF-8" " >> ~/.bashrc
 
