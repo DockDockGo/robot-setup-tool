@@ -53,7 +53,7 @@ git clone --branch $ROS_DISTRO     https://github.com/neobotix/neo_localization2
 git clone --branch master          https://github.com/neobotix/neo_common2
 git clone --branch master          https://github.com/neobotix/neo_msgs2
 git clone --branch master          https://github.com/neobotix/neo_srvs2
-git clone https://github.com/neobotix/neo_fleet_rviz2_plugin.git
+git clone --branch main  		   https://github.com/neobotix/neo_fleet_rviz2_plugin.git
 
 # copy workspace 0 files
 cp ~/robot-setup-tool/world_files/workspace_0/workspace_0* ~/mp_400_ws/src/neo_simulation2/maps/
