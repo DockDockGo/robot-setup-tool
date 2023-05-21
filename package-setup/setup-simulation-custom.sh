@@ -56,13 +56,13 @@ git clone --branch master          https://github.com/neobotix/neo_srvs2
 git clone https://github.com/neobotix/neo_fleet_rviz2_plugin.git
 
 # copy workspace 0 files
-RUN cp ~/robot-setup-tools/world_files/workspace_0/workspace_0* ~/mp_400_ws/src/neo_simulation2/maps/
-RUN cp ~/robot-setup-tools/world_files/workspace_0/worlds/* ~/mp_400_ws/src/neo_simulation2/worlds/
+cp ~/robot-setup-tool/world_files/workspace_0/workspace_0* ~/mp_400_ws/src/neo_simulation2/maps/
+cp ~/robot-setup-tool/world_files/workspace_0/worlds/* ~/mp_400_ws/src/neo_simulation2/worlds/
 
 #copy svd_demo
-RUN cp ~/robot-setup-tools/world_files/svd_demo/map/* ~/mp_400_ws/src/neo_simulation2/maps/
-RUN cp ~/robot-setup-tools/world_files/svd_demo/world/* ~/mp_400_ws/src/neo_simulation2/worlds/
-RUN cp ~/robot-setup-tools/world_files/svd_demo/models/* ~/mp_400_ws/src/neo_simulation2/models/
+cp ~/robot-setup-tool/world_files/svd_demo/map/* ~/mp_400_ws/src/neo_simulation2/maps/
+cp ~/robot-setup-tool/world_files/svd_demo/world/* ~/mp_400_ws/src/neo_simulation2/worlds/
+cp -r ~/robot-setup-tool/world_files/svd_demo/models/* ~/mp_400_ws/src/neo_simulation2/models/
 
 # # build workspace
 cd ..
