@@ -1,0 +1,34 @@
+-- Found ament_cmake: 1.3.3 (/opt/ros/humble/share/ament_cmake/cmake)
+-- Found ament_lint_auto: 0.12.5 (/opt/ros/humble/share/ament_lint_auto/cmake)
+-- Added test 'cppcheck' to perform static code analysis on C / C++ code
+-- Configured cppcheck include dirs: 
+-- Configured cppcheck exclude dirs and/or files: 
+-- Added test 'flake8' to check Python code syntax and style conventions
+-- Added test 'lint_cmake' to check CMake code style
+-- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+-- Added test 'uncrustify' to check C / C++ code style
+-- Configured uncrustify additional arguments: 
+-- Added test 'xmllint' to check XML markup files
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /root/neobotix_workspace/src/sush_mapping/build/sush_mapping
+-- Install configuration: ""
+-- Up-to-date: /root/neobotix_workspace/src/sush_mapping/install/sush_mapping/share/sush_mapping/launch
+-- Up-to-date: /root/neobotix_workspace/src/sush_mapping/install/sush_mapping/share/sush_mapping/launch/online_async_launch.py
+-- Installing: /root/neobotix_workspace/src/sush_mapping/install/sush_mapping/share/sush_mapping/config
+-- Installing: /root/neobotix_workspace/src/sush_mapping/install/sush_mapping/share/sush_mapping/config/mapper_params_online_async.yaml
+-- Up-to-date: /root/neobotix_workspace/src/sush_mapping/install/sush_mapping/share/ament_index/resource_index/package_run_dependencies/sush_mapping
+-- Installing: /root/neobotix_workspace/src/sush_mapping/install/sush_mapping/share/ament_index/resource_index/parent_prefix_path/sush_mapping
+-- Up-to-date: /root/neobotix_workspace/src/sush_mapping/install/sush_mapping/share/sush_mapping/environment/ament_prefix_path.sh
+-- Installing: /root/neobotix_workspace/src/sush_mapping/install/sush_mapping/share/sush_mapping/environment/ament_prefix_path.dsv
+-- Up-to-date: /root/neobotix_workspace/src/sush_mapping/install/sush_mapping/share/sush_mapping/environment/path.sh
+-- Installing: /root/neobotix_workspace/src/sush_mapping/install/sush_mapping/share/sush_mapping/environment/path.dsv
+-- Up-to-date: /root/neobotix_workspace/src/sush_mapping/install/sush_mapping/share/sush_mapping/local_setup.bash
+-- Up-to-date: /root/neobotix_workspace/src/sush_mapping/install/sush_mapping/share/sush_mapping/local_setup.sh
+-- Up-to-date: /root/neobotix_workspace/src/sush_mapping/install/sush_mapping/share/sush_mapping/local_setup.zsh
+-- Installing: /root/neobotix_workspace/src/sush_mapping/install/sush_mapping/share/sush_mapping/local_setup.dsv
+-- Installing: /root/neobotix_workspace/src/sush_mapping/install/sush_mapping/share/sush_mapping/package.dsv
+-- Up-to-date: /root/neobotix_workspace/src/sush_mapping/install/sush_mapping/share/ament_index/resource_index/packages/sush_mapping
+-- Up-to-date: /root/neobotix_workspace/src/sush_mapping/install/sush_mapping/share/sush_mapping/cmake/sush_mappingConfig.cmake
+-- Up-to-date: /root/neobotix_workspace/src/sush_mapping/install/sush_mapping/share/sush_mapping/cmake/sush_mappingConfig-version.cmake
+-- Up-to-date: /root/neobotix_workspace/src/sush_mapping/install/sush_mapping/share/sush_mapping/package.xml

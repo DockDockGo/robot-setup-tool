@@ -17,5 +17,5 @@ docker run -it --rm \
     --name "humble_sim_docker" \
     --runtime nvidia \
     $@ \
-    humble_sim_docker_built \
+    sushanthj/humble_sim_mapping_built:latest \
     /bin/bash
