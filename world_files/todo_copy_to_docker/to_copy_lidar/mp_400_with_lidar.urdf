@@ -37,7 +37,7 @@
 
       </plugin>
 </gazebo>
-
+<!--++++++++++++++++++++++++++++++2D_LIDAR_SENSOR_PLUGIN_ADDITION+++++++++++++++++++++++++++-->
 <gazebo reference="lidar_1_link">
     <sensor name="lidar_1_sensor" type="ray">
       <always_on>true</always_on>
@@ -76,6 +76,50 @@
       <!-- Set output to sensor_msgs/LaserScan to get same output type as gazebo_ros_laser -->
       <output_type>sensor_msgs/LaserScan</output_type>
       <frame_name>lidar_1_link</frame_name>
+      </plugin>
+    </sensor>
+  </gazebo>
+  <!--++++++++++++++++++++++++++++++3D_LIDAR_SENSOR_PLUGIN_ADDITION+++++++++++++++++++++++++-->
+  <gazebo reference="lidar_2_link">
+    <sensor name="sensor_ray" type="ray">
+      <always_on>true</always_on>
+      <pose>0.0 0.0 0.0 0.0 0.0 0.0</pose>
+      <visualize>true</visualize>
+      <ray>
+        <scan display="true">
+            <horizontal>
+                <samples>300</samples>
+                <resolution>1.0</resolution>
+                <min_angle>-0.5236</min_angle>
+                <max_angle>0.5236</max_angle>
+            </horizontal>
+            <vertical>
+                <samples>100</samples>
+                <resolution>1.0</resolution>
+                <min_angle>-0.5236</min_angle>
+                <max_angle>0.5236</max_angle>
+            </vertical>
+        </scan>
+        <range>
+            <min>0.05</min>
+            <max>50.0</max>
+            <resolution>0.05</resolution>
+        </range>
+        <noise>
+          <type>gaussian</type>
+          <!-- Noise parameters TBD
+                  reading. -->
+          <mean>0.0</mean>
+          <stddev>0.01</stddev>
+        </noise>
+      </ray>
+      <plugin filename="libgazebo_ros_velodyne_laser.so" name="lidar_2">
+      <ros>
+        <!-- <namespace>   </namespace> -->
+        <argument>~/out:=velodyne_filtered</argument>
+      </ros>
+      <!-- Set output to sensor_msgs/LaserScan to get same output type as gazebo_ros_laser -->
+      <frame_name>lidar_2_link</frame_name>
       </plugin>
     </sensor>
   </gazebo>
@@ -334,7 +378,7 @@
     <minDepth>0.00</minDepth>
     <implicitSpringDamper>1</implicitSpringDamper>
   </gazebo>
-  <!--+++++++++++++++++++laserscanner_link++++++++++++++++++++++++-->
+  <!--+++++++++++++++++++2D_LIDAR_link++++++++++++++++++++++++-->
   <joint name="laser_1_joint" type="fixed">
     <axis xyz="0 1 0"/>
     <origin rpy="0 3.14 3.14" xyz="0.230 0 0.110"/>
@@ -355,6 +399,33 @@
     </visual>
     <collision>
       <origin rpy="1.57 0 0" xyz="-0.0 0 -0.06"/>
+      <geometry>
+        <mesh filename="package://neo_simulation2/components/sensors/SICK-MICROSCAN3.dae" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+  <!--+++++++++++++++++++3D_LIDAR_LINK++++++++++++++++++++++++-->
+  <!-- Note: lidar_1_link = 2D lidar, lidar_2_link = 3D lidar -->
+  <joint name="lidar_1_joint" type="fixed">
+    <axis xyz="0 0 1"/>
+    <origin rpy="0 3.14 3.14" xyz="0.230 0 0.230"/>
+    <parent link="base_link"/>
+    <child link="lidar_2_link"/>
+  </joint>
+  <link name="lidar_2_link" type="laser">
+    <inertial>
+      <mass value="0.001"/>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <inertia ixx="0.0001" ixy="0" ixz="0" iyy="0.000001" iyz="0" izz="0.0001"/>
+    </inertial>
+    <visual>
+      <origin rpy="1.57 0 0" xyz="-0.0 0 0.56"/>
+      <geometry>
+        <mesh filename="package://neo_simulation2/components/sensors/SICK-MICROSCAN3.dae" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="1.57 0 0" xyz="-0.0 0 0.56"/>
       <geometry>
         <mesh filename="package://neo_simulation2/components/sensors/SICK-MICROSCAN3.dae" scale="0.001 0.001 0.001"/>
       </geometry>
