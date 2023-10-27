@@ -21,13 +21,13 @@ services:
       - "FASTRTPS_DEFAULT_PROFILES_FILE=/usr/local/share/middleware_profiles/rtps_udp_profile.xml"
     volumes:
       - "/tmp/.X11-unix:/tmp/.X11-unix"
-      - "/home/vineet/.Xauthority:/home/admin/.Xauthority:rw"
-      - "/home/vineet/:/home/admin/"
+      - "/home/yjt/.Xauthority:/home/yjt/.Xauthority:rw"
+      - "/home/yjt/:/home/admin/"
       - "/dev/*:/dev/*"
-    # deploy:
-    #   resources:
-    #     reservations:
-    #       devices:
-    #         - driver: nvidia
-    #           count: 1
-    #           capabilities: [ gpu ]
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [ gpu ]

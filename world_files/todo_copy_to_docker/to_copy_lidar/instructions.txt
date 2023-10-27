@@ -1,3 +1,0 @@
-1. Copy simulation.launch.py -> /root/neobotix_workspace/src/neo_simulation2/launch
-2. Copy mp_400_with_lidar.urdf -> /root/neobotix_workspace/src/neo_simulation2/robots/mp_400/
-3. Run sudo apt install ros-humble-velodyne-gazebo-plugins
