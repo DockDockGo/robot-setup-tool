@@ -45,6 +45,16 @@ sudo apt-get install -y ros-$ROS_DISTRO-teleop-twist-keyboard
 # rviz
 sudo apt install ros-$ROS_DISTRO-rviz2
 
+sudo apt install -y ros-$ROS_DISTRO-tf-transformations
+
+wget  https://bootstrap.pypa.io/get-pip.py
+
+python3 get-pip.py
+
+pip install transforms3d
+
+sudo apt install ros-$ROS_DISTRO-rmw-cyclonedds-cpp
+
 # cd ~
 
 # mkdir -p mp_400_ws/src

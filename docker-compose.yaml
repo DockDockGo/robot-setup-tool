@@ -31,3 +31,4 @@ services:
             - driver: nvidia
               count: 1
               capabilities: [ gpu ]
+    command: export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
